@@ -1,0 +1,37 @@
+# Shared configuration of the "Ingenieur in Limburg" theme.
+#
+# Only settings that Hugo merges from a theme belong here (markup, outputs, params,
+# module imports). Site-level settings stay in each course's own hugo.toml:
+#   baseURL, title, canonifyURLs, publishDir, locale and the course's module import.
+
+# Relearn is the back bone of this theme. Courses only import iil-hugo-theme;
+# Relearn comes along automatically through this import.
+[module]
+  [[module.imports]]
+    path = 'github.com/McShelby/hugo-theme-relearn'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+    # To allow $$ ... $$ as math mode
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$'], ['\\[', '\\]']]
+          inline = [['$', '$'], ['\(', '\)']]
+
+# To allow the print button to work
+[outputs]
+  home = ['html', 'rss', 'print']
+  page = ['html', 'rss', 'print']
+  section = ['html', 'rss', 'print']
+
+# To use a custom file for the logo (each course supplies its own static/img/logo.png)
+[params]
+
+  [params.logo]
+    layout = 'sidebar-column'
+    src = '/img/logo.png'

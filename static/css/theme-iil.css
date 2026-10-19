@@ -1,0 +1,261 @@
+
+div.multiHcolumn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+div.multiHcolumn div.column{
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 10px 10px;
+}
+
+/* div.column_highlight {
+    flex-basis: 0;
+    flex-grow: 1;
+    margin: 10px 100px;
+    padding: 10px 0px;
+    background: var(--MAIN-SECTION-HIGHLIGHT-BG-color);
+    color: var(--MAIN-SECTION-HIGHLIGHT-color);
+    font-weight: bold;
+    font-size: 200%;
+} */
+
+
+/* ------------------------------------------------------------------
+   Layout tweaks for the "Ingenieur in Limburg" site.
+   The colours are NOT set here: they live in the theme variant
+   assets/css/theme-limburg.css (enabled with themeVariant in hugo.toml).
+   ------------------------------------------------------------------ */
+/* Repeated :root raises the specificity, so these values win over the built-in
+   Relearn variant, which uses a more specific selector. */
+:root:root:root:root:root {
+  /* limburg: "Ingenieur in Limburg" - light, minimal, one green accent (Kempen green) */
+  --PRIMARY-color: rgba( 47, 107, 79, 1 ); /* brand primary color */
+  --PRIMARY-HOVER-color: rgba( 29, 74, 53, 1 ); /* brand primary hover color */
+  --SECONDARY-color: rgba( 47, 107, 79, 1 ); /* brand secondary color */
+  --SECONDARY-HOVER-color: rgba( 29, 74, 53, 1 ); /* brand secondary hover color */
+  --ACCENT-color: rgba( 183, 223, 197, 1 ); /* brand accent color, used for search highlights */
+  --ACCENT-HOVER-color: rgba( 150, 205, 170, 1 ); /* brand accent hover color */
+  --MENU-HEADER-color: rgba( 31, 42, 36, 1 ); /* color of menu header */
+  --MENU-HEADER-BG-color: rgba( 241, 245, 242, 1 ); /* background color of menu header */
+  --MENU-HEADER-BORDER-color: rgba( 47, 107, 79, 1 ); /* border color between menu header and menu; also the Home and Lab sessions bars */
+  --MENU-SEARCH-color: rgba( 47, 107, 79, 1 ); /* text and icon color of search box */
+  --MENU-SEARCH-BG-color: rgba( 225, 235, 228, 1 ); /* background color of search box */
+  --MENU-SEARCH-BORDER-color: rgba( 47, 107, 79, 1 ); /* border color of search box */
+  --MENU-HOME-LINK-color: rgba( 255, 255, 255, 1 ); /* home button color if configured */
+  --MENU-HOME-LINK-HOVER-color: rgba( 255, 255, 255, 1 ); /* hovered home button color if configured */
+  --MENU-HOME-TOP-SEPARATOR-color: rgba( 203, 216, 207, 1 ); /* separator color between menu search box and home menu */
+  --MENU-SECTIONS-BG-color: rgba( 241, 245, 242, 1 ); /* background of the menu */
+  --MENU-SECTIONS-ACTIVE-BG-color: rgba( 225, 235, 228, 1 ); /* background color of the active menu section */
+  --MENU-SECTIONS-LINK-color: rgba( 31, 42, 36, 1 ); /* link color of menu topics */
+  --MENU-SECTIONS-LINK-HOVER-color: rgba( 47, 107, 79, 1 ); /* hovered link color of menu topics */
+  --MENU-SECTION-ACTIVE-CATEGORY-color: rgba( 255, 255, 255, 1 ); /* text color of the displayed menu topic */
+  --MENU-SECTION-ACTIVE-CATEGORY-BG-color: rgba( 47, 107, 79, 1 ); /* background color of the displayed menu topic */
+  --MENU-SECTION-SEPARATOR-color: rgba( 203, 216, 207, 1 ); /* separator color between menus */
+  --MAIN-LINK-color: rgba( 47, 107, 79, 1 ); /* link color of content */
+  --MAIN-LINK-HOVER-color: rgba( 29, 74, 53, 1 ); /* hovered link color of content */
+  --MAIN-ANCHOR-color: rgba( 47, 107, 79, 1 ); /* color of anchors on titles */
+  --MAIN-BG-color: rgba( 255, 255, 255, 1 ); /* background color of content */
+  --MAIN-TEXT-color: rgba( 31, 42, 36, 1 ); /* text color of content and titles */
+  --MAIN-TITLES-TEXT-color: rgba( 31, 42, 36, 1 ); /* text color of titles and transparent box titles */
+  --CODE-theme: learn; /* name of the chroma stylesheet file */
+  --CODE-BLOCK-color: rgba( 226, 228, 229, 1 ); /* fallback text color of block code */
+  --CODE-BLOCK-BG-color: rgba( 40, 42, 54, 1 ); /* fallback background color of block code */
+  --CODE-BLOCK-BORDER-color: rgba( 40, 42, 54, 1 ); /* border color of block code */
+  --CODE-INLINE-color: rgba( 94, 94, 94, 1 ); /* text color of inline code */
+  --CODE-INLINE-BG-color: rgba( 238, 244, 240, 1 ); /* background color of inline code */
+  --CODE-INLINE-BORDER-color: rgba( 205, 219, 210, 1 ); /* border color of inline code */
+  --BROWSER-theme: light; /* name of the theme for controls drawn by the browser like form fields */
+  --MERMAID-theme: default; /* name of the default Mermaid theme for this variant */
+  --OPENAPI-theme: light; /* name of the default OpenAPI theme for this variant */
+  --OPENAPI-CODE-theme: idea; /* name of the default OpenAPI code theme for this variant */
+  --BOX-CAPTION-color: rgba( 255, 255, 255, 1 ); /* text color of colored box titles */
+  --BOX-BG-color: rgba( 255, 255, 255, .833 ); /* background color of colored boxes */
+  --BOX-TEXT-color: rgba( 16, 16, 16, 1 ); /* text color of colored box content */
+}
+
+
+
+/* "Lab sessions" heading in the main menu, styled like the Home block:
+   a line, the label (same font, size and colour as the Home link), a line. */
+.R-shortcutmenu-main > ul > li[data-nav-id="/150/index.html"]::before {
+    content: "Lab sessions";
+    display: block;
+    padding: 0.75rem;
+    border-top: 1px solid var(--INTERNAL-MENU-HOME-TOP-SEPARATOR-color);
+    border-bottom: 1px solid var(--INTERNAL-MENU-HOME-SEPARATOR-color);
+    color: var(--INTERNAL-MENU-HOME-LINK-color);
+    background-color: var(--INTERNAL-MENU-HEADER-BORDER-color);
+    margin: 0;
+}
+
+/* Logo: put the title below the image instead of next to it */
+#R-logo.R-default,
+#R-logo.R-default.direction-row {
+    flex-direction: column !important;
+    align-items: center;
+}
+#R-logo.R-default .logo-title {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+
+
+
+
+  /* overflow: hidden; */
+  /* padding: 0; */
+
+
+/* 
+body {
+    color: var(--MAIN-TEXT-color) !important;
+}
+
+textarea:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, select[multiple=multiple]:focus {
+    border-color: none;
+    box-shadow: none;
+}
+
+h2, h3, h4, h5 {
+    color: var(--MAIN-TITLES-TEXT-color) !important;
+}
+
+a {
+    color: var(--MAIN-LINK-color);
+}
+
+.anchor {
+    color: var(--MAIN-ANCHOR-color);
+}
+
+a:hover {
+    color: var(--MAIN-LINK-HOVER-color);
+}
+
+#sidebar ul li.visited > a .read-icon {
+  color: var(--MENU-VISITED-color);
+}
+
+#body a.highlight:after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 0%;
+    -webkit-transition: width 0.5s ease;
+    -moz-transition: width 0.5s ease;
+    -ms-transition: width 0.5s ease;
+    transition: width 0.5s ease;
+    background-color: var(--MAIN-LINK-HOVER-color);
+}
+#sidebar {
+  background-color: var(--MENU-SECTIONS-BG-color);
+}
+#sidebar #header-wrapper {
+    background: var(--MENU-HEADER-BG-color);
+    color: var(--MENU-SEARCH-BOX-color);
+    border-color: var(--MENU-HEADER-BORDER-color);
+}
+#sidebar .searchbox {
+  border-color: var(--MENU-SEARCH-BOX-color);
+    background: var(--MENU-SEARCH-BG-color);
+}
+#sidebar ul.topics > li.parent, #sidebar ul.topics > li.active {
+    background: var(--MENU-SECTIONS-ACTIVE-BG-color);
+}
+#sidebar .searchbox * {
+    color: var(--MENU-SEARCH-BOX-ICONS-color);
+}
+
+#sidebar a {
+    color: var(--MENU-SECTIONS-LINK-color);
+}
+
+#sidebar a:hover {
+    color: var(--MENU-SECTIONS-LINK-HOVER-color);
+}
+
+#sidebar ul li.active > a {
+    background: var(--MENU-SECTION-ACTIVE-CATEGORY-BG-color);
+    color: var(--MENU-SECTION-ACTIVE-CATEGORY-color) !important;
+}
+
+#sidebar hr {
+    border-color: var(--MENU-SECTION-HR-color);
+}
+
+.source {
+    color: var(--MAIN-TITLES-TEXT-color) !important;
+    text-align: center;
+    margin-top: -35px;
+    font-style: italic;
+}
+
+.labquestion {
+    background-color: var(--MENU-HEADER-BG-color);
+    color: white;
+    padding: 20px;
+    margin: 20px 0px;
+    width: 100%;
+}
+
+.labquestion .question {
+    font-weight: bold;
+    text-align: left;
+}
+
+.labquestion .input {
+    color: red;
+    padding: 20px;
+    width: 100%;
+}
+
+.labquestion .answer {
+    background-color: #b7c9e1;
+    color: var(--MAIN-TEXT-color);
+    text-align: center;
+}
+
+.labquestion .answer_answer {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.labquestion .hide_answer {
+    display: none;
+}
+
+.custompre {
+    background-color: #b7c9e1;
+    color: var(--MAIN-TITLES-TEXT-color) !important;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#typestates {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+tr.header{
+    background: var(--MENU-HEADER-BG-color);
+    color: white;
+    font-weight: bold;
+}
+
+.code_caption {
+    color: --MENU-HEADER-BG-color;
+    text-align: center;
+    margin-bottom: -20px;
+    text-decoration: underline;
+    font-size: 120%
+}
+
+*/
