@@ -15,14 +15,6 @@
     [markup.goldmark.renderer]
       unsafe = true
 
-    # To allow $$ ... $$ as math mode
-    [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['$$', '$$'], ['\\[', '\\]']]
-          inline = [['$', '$'], ['\(', '\)']]
-
 # To allow the print button to work
 [outputs]
   home = ['html', 'rss', 'print']
