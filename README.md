@@ -283,4 +283,6 @@ To preview unreleased theme changes in a course without tagging, add a `replace`
 
 ## Log
 
-- **v0.1.0:** first version. Kempen green theme, shortcodes (`column`, `multiHcolumn`, `include_file`, `code_caption`, `google`), shared maths, print and logo settings, Relearn as module import.
+* **v0.1.1:** mov
+    * move math to individual courses
+* **v0.1.0:** first version. Kempen green theme, shortcodes (`column`, `multiHcolumn`, `include_file`, `code_caption`, `google`), shared maths, print and logo settings, Relearn as module import.
