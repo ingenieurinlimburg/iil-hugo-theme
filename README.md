@@ -261,6 +261,10 @@ git tag v0.1.1 && git push --follow-tags
 
 ```bash
 hugo mod get github.com/ingenieurinlimburg/iil-hugo-theme@v0.1.1   # or: hugo mod get -u
+
+hugo mod tidy
+hugo mod graph        # should list iil-hugo-theme v0.1.1 and Relearn
+
 hugo server
 git add go.mod go.sum && git commit -m "Update theme" && git push
 ```
